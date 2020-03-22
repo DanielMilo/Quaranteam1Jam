@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    delegate void InventoryEvent(Item item);
+    public delegate void InventoryEvent(Item item);
 
-    InventoryEvent OnItemAdded;
-    InventoryEvent OnItemRemoved;
+    public InventoryEvent OnItemAdded;
+    public InventoryEvent OnItemRemoved;
 
-    private Dictionary<EItemType, int> m_stock;
+    private Dictionary<EItemType, int> m_stock = new Dictionary<EItemType, int>();
 
-    public static Inventory Instance { get; private set; }
+    public static Inventory Instance { get; private set; } = null;
 
     private void Awake()
     {
@@ -45,7 +45,18 @@ public class Inventory : MonoBehaviour
             m_stock.Remove(item.ItemType);
         }
 
-
         OnItemRemoved?.Invoke(item);
+    }
+
+    public int AmountInStock(EItemType itemType)
+    {
+        int amount = 0;
+
+        if (m_stock.ContainsKey(itemType))
+        {
+            amount = m_stock[itemType];
+        }
+
+        return amount;
     }
 }

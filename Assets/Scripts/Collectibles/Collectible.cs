@@ -26,5 +26,12 @@ public class Collectible : MonoBehaviour
         { 
             Inventory.Instance.AddItem(m_associatedItem);
         }
+
+        DoStuffAndDestroy();
+    }
+
+    private void DoStuffAndDestroy()
+    {
+        Destroy(gameObject);
     }
 }

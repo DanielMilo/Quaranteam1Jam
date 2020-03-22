@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public enum EItemType
 {
@@ -15,7 +14,7 @@ public class Item : ScriptableObject
     private EItemType m_item;
 
     [SerializeField]
-    private Texture m_texture;
+    private Sprite m_sprite;
 
     public EItemType ItemType
     {
@@ -25,11 +24,11 @@ public class Item : ScriptableObject
         }
     }
 
-    public Texture Texture
+    public Sprite Sprite
     {
         get
         {
-            return m_texture;
+            return m_sprite;
         }
     }
 }
