@@ -3,7 +3,7 @@
 public class CameraCollision : MonoBehaviour
 {
     public Transform referenceTransform;
-    public float collisionOffset = 0.2f; //To prevent Camera from clipping through Objects
+    public float collisionOffset = 0.5f; //To prevent Camera from clipping through Objects
 
     Vector3 defaultPos;
     Vector3 directionNormalized;
