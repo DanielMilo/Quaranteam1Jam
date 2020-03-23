@@ -15,6 +15,8 @@ public class TPCharacter : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
 
+    [SerializeField] Animator animator;
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -38,9 +40,20 @@ public class TPCharacter : MonoBehaviour
         {
             if (Input.GetButton("Jump") && canMove)
             {
+                animator.SetFloat("speed", 0f);
                 moveDirection.y = jumpSpeed;
             }
+            else
+            {
+                animator.SetFloat("speed", new Vector2(moveDirection.x, moveDirection.z).magnitude);
+            }
         }
+        else
+        {
+            animator.SetFloat("speed", 0f);
+        }
+
+        
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied

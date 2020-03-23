@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &8770737 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3346951968192500063, guid: 28d6d7469035a674f8e27b4bfc85548b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5027686107099352739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &31467045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,11 +1007,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507055707, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
+      propertyPath: m_CustomSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 03389866351d19a47adc95c57d054097, type: 2}
+    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8770737}
+    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3346951968192500063, guid: 28d6d7469035a674f8e27b4bfc85548b,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 49e72c73d2b711d49ade0513fcc06ded, type: 2}
+    - target: {fileID: 3346951968192500063, guid: 28d6d7469035a674f8e27b4bfc85548b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5027686106247093904, guid: 28d6d7469035a674f8e27b4bfc85548b,
         type: 3}
       propertyPath: m_LocalPosition.x
