@@ -7,6 +7,7 @@ public class TPCharacter : MonoBehaviour
     public float speed = 7.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public float rotationRate = 10f;
     public Transform playerCameraParent;
     public Transform playerModelParent;
     public float lookSpeed = 2.0f;
@@ -79,7 +80,7 @@ public class TPCharacter : MonoBehaviour
 
             rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
             transform.eulerAngles = new Vector2(0, rotation.y);
-            if(currSpeedX == 0 && currSpeedY == 0)
+            if (currSpeedX == 0 && currSpeedY == 0)
             {
                 if (isMoving)
                 {
@@ -90,15 +91,42 @@ public class TPCharacter : MonoBehaviour
             }
             else
             {
-                // TODO: face in the walking direction (arrows)
-                Debug.Log("X:" + currSpeedX + " Y: " + currSpeedY + 
-                            "\nAngle: " + Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized) + " Normalized: " + new Vector2(currSpeedX, currSpeedY).normalized);
+                /*Debug.Log("X:" + currSpeedX + " Y: " + currSpeedY + 
+                            "\nAngle: " + Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized) + " Normalized: " + new Vector2(currSpeedX, currSpeedY).normalized);*/
                 float normalizedAngle = Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized);
                 float magnitude = 1;
                 if (currSpeedY < 0) magnitude = -1;
-                playerModelParent.localEulerAngles = new Vector2(0, normalizedAngle * magnitude);
-
                 // TODO 2: turn fast but not instantly
+                Vector2 targetRotation = new Vector2(0, normalizedAngle * magnitude);
+                float rotationNeeded = targetRotation.y - playerModelParent.localEulerAngles.y;
+                float rotationDirection = 0;
+
+                while(rotationNeeded < 0)
+                {
+                    rotationNeeded += 360;
+                }
+
+                if(rotationNeeded > 180)
+                {
+                    rotationDirection = -1;
+                }
+                else if(rotationNeeded > 0)
+                {
+                    rotationDirection = 1;
+                }
+
+                float actualrotation = rotationDirection * Time.deltaTime * rotationRate;
+
+                if (Mathf.Abs(actualrotation) > Mathf.Abs(rotationNeeded))
+                {
+                    actualrotation = rotationNeeded;
+                }
+                Debug.Log("needed: " + rotationNeeded + " actual: " + actualrotation + " current: " + playerModelParent.localEulerAngles.y);
+                if(Mathf.Abs(actualrotation) > 0)
+                {
+                    playerModelParent.localEulerAngles = new Vector2(playerModelParent.localEulerAngles.x, playerModelParent.localEulerAngles.y + actualrotation);
+                }
+                
                 isMoving = true;
             }
         }
