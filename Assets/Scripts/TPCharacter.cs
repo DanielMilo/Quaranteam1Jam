@@ -26,15 +26,16 @@ public class TPCharacter : MonoBehaviour
 
     void Update()
     {
+        // We are grounded, so recalculate move direction based on axes
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 up = transform.TransformDirection(Vector3.up);
+        float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
+        float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
+        moveDirection = (forward * curSpeedX) + (up * moveDirection.y) + (right * curSpeedY);
+
         if (characterController.isGrounded)
         {
-            // We are grounded, so recalculate move direction based on axes
-            Vector3 forward = transform.TransformDirection(Vector3.forward);
-            Vector3 right = transform.TransformDirection(Vector3.right);
-            float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
-            float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
             if (Input.GetButton("Jump") && canMove)
             {
                 moveDirection.y = jumpSpeed;
