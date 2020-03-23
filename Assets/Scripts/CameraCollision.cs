@@ -10,6 +10,7 @@ public class CameraCollision : MonoBehaviour
     Transform parentTransform;
     float defaultDistance;
 
+    Vector3 smoothVelocity = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class CameraCollision : MonoBehaviour
     }
 
     // FixedUpdate for physics calculations
-    void FixedUpdate()
+    void LateUpdate()
     {
         Vector3 currentPos = defaultPos;
         RaycastHit hit;
@@ -30,6 +31,6 @@ public class CameraCollision : MonoBehaviour
             currentPos = (directionNormalized * (hit.distance - collisionOffset));
         }
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition, currentPos, Time.deltaTime * 15f);
+        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, currentPos, ref smoothVelocity, 2f);
     }
 }
