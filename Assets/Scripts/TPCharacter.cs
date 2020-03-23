@@ -8,12 +8,16 @@ public class TPCharacter : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Transform playerCameraParent;
+    public Transform playerModelParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
+
+    Vector2 lastMovingRotation = Vector2.zero;
+    bool isMoving = false;
 
     [SerializeField] Animator animator;
 
@@ -32,9 +36,11 @@ public class TPCharacter : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 up = transform.TransformDirection(Vector3.up);
-        float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
-        moveDirection = (forward * curSpeedX) + (up * moveDirection.y) + (right * curSpeedY);
+        float currSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
+        float currSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
+        moveDirection = (forward * currSpeedX) + (up * moveDirection.y) + (right * currSpeedY);
+        
+        
 
         if (characterController.isGrounded)
         {
@@ -53,8 +59,6 @@ public class TPCharacter : MonoBehaviour
             animator.SetFloat("speed", 0f);
         }
 
-        
-
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
@@ -66,11 +70,29 @@ public class TPCharacter : MonoBehaviour
         // Player and Camera rotation
         if (canMove)
         {
-            rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
+            // rotatin x - camerta only
             rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
             playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
+
+            // rotation y
+
+            rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
             transform.eulerAngles = new Vector2(0, rotation.y);
+            if(currSpeedX == 0 && currSpeedY == 0)
+            {
+                if (isMoving)
+                {
+                    lastMovingRotation = playerModelParent.eulerAngles;
+                }
+                playerModelParent.localEulerAngles = new Vector2(0, -rotation.y + lastMovingRotation.y);
+                isMoving = false;
+            }
+            else
+            {
+                playerModelParent.localEulerAngles = Vector2.zero;
+                isMoving = true;
+            }
         }
     }
 }

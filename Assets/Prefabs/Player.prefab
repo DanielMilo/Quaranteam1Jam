@@ -107,7 +107,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628942103}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 47b7a45414f3b564e9e8349bfa18b29f, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 03389866351d19a47adc95c57d054097, type: 2}
 --- !u!1 &1775395420
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,12 +220,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9824d9c6f4df13b4cb0cb45ceb5c6ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 10
   jumpSpeed: 6
   gravity: 10
   playerCameraParent: {fileID: 1775395421}
+  playerModelParent: {fileID: 4681703832210390053}
   lookSpeed: 2
   lookXLimit: 40
+  animator: {fileID: 3346951968192500063}
   canMove: 1
 --- !u!1001 &397007372849354559
 PrefabInstance:
@@ -234,6 +236,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5027686106247093904}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: 81ec94a09a017884dbe1e4d8b68c80c9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 49e72c73d2b711d49ade0513fcc06ded, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 81ec94a09a017884dbe1e4d8b68c80c9,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 81ec94a09a017884dbe1e4d8b68c80c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -299,6 +311,12 @@ PrefabInstance:
 --- !u!4 &4681703832210390053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 81ec94a09a017884dbe1e4d8b68c80c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 397007372849354559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3346951968192500063 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 81ec94a09a017884dbe1e4d8b68c80c9,
     type: 3}
   m_PrefabInstance: {fileID: 397007372849354559}
   m_PrefabAsset: {fileID: 0}
