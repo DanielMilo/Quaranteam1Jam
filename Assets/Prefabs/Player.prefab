@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628942103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.6, z: -2.9}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0.23, y: 0.96, z: -3.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1775395421}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!20 &628942105
 Camera:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628942103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83c5c89f4e294f84a8ccda8378afddc5, type: 3}
   m_Name: 
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1389662260}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,10 +289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9824d9c6f4df13b4cb0cb45ceb5c6ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
-  jumpSpeed: 8
-  gravity: 20
+  speed: 8
+  jumpSpeed: 6
+  gravity: 10
   playerCameraParent: {fileID: 1775395421}
-  lookSpeed: 1
+  lookSpeed: 2
   lookXLimit: 40
   canMove: 1

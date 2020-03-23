@@ -1054,54 +1054,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 628942105, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: far clip plane
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.08715578
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9961947
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942106, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 628942107, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: jumpSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: gravity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389662260, guid: 28d6d7469035a674f8e27b4bfc85548b, type: 3}
-      propertyPath: lookSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5027686106247093904, guid: 28d6d7469035a674f8e27b4bfc85548b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1160,11 +1112,6 @@ PrefabInstance:
     - target: {fileID: 5027686106247093905, guid: 28d6d7469035a674f8e27b4bfc85548b,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027686106247093905, guid: 28d6d7469035a674f8e27b4bfc85548b,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
