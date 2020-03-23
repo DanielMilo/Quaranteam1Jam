@@ -92,13 +92,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628942103}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83c5c89f4e294f84a8ccda8378afddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTransform: {fileID: 1775395421}
-  collisionOffset: 0.2
+  collisionOffset: 0.25
 --- !u!45 &507055707
 Skybox:
   m_ObjectHideFlags: 0
@@ -201,13 +201,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.6
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &1389662260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpSpeed: 6
-  gravity: 10
+  gravity: 20
+  rotationRate: 360
   playerCameraParent: {fileID: 1775395421}
   playerModelParent: {fileID: 4681703832210390053}
   lookSpeed: 2
