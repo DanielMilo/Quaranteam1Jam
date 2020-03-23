@@ -90,7 +90,15 @@ public class TPCharacter : MonoBehaviour
             }
             else
             {
-                playerModelParent.localEulerAngles = Vector2.zero;
+                // TODO: face in the walking direction (arrows)
+                Debug.Log("X:" + currSpeedX + " Y: " + currSpeedY + 
+                            "\nAngle: " + Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized) + " Normalized: " + new Vector2(currSpeedX, currSpeedY).normalized);
+                float normalizedAngle = Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized);
+                float magnitude = 1;
+                if (currSpeedY < 0) magnitude = -1;
+                playerModelParent.localEulerAngles = new Vector2(0, normalizedAngle * magnitude);
+
+                // TODO 2: turn fast but not instantly
                 isMoving = true;
             }
         }
