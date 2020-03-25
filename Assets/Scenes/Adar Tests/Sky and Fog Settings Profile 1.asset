@@ -59,10 +59,10 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 818.78
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 1500
+    m_Value: 1808
   albedo:
     m_OverrideState: 0
     m_Value: {r: 0.8207547, g: 0.7578198, b: 0, a: 1}
