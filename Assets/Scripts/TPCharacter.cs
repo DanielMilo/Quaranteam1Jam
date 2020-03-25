@@ -40,12 +40,13 @@ public class TPCharacter : MonoBehaviour
         float currSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
         float currSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
         moveDirection = (forward * currSpeedX) + (up * moveDirection.y) + (right * currSpeedY);
-        
-        
 
         if (characterController.isGrounded)
         {
-            if (Input.GetButton("Jump") && canMove)
+            animator.SetFloat("speed", new Vector2(moveDirection.x, moveDirection.z).magnitude);
+
+            // Disabled jump
+            /*if (Input.GetButton("Jump") && canMove)
             {
                 animator.SetFloat("speed", 0f);
                 moveDirection.y = jumpSpeed;
@@ -53,7 +54,7 @@ public class TPCharacter : MonoBehaviour
             else
             {
                 animator.SetFloat("speed", new Vector2(moveDirection.x, moveDirection.z).magnitude);
-            }
+            }*/
         }
         else
         {
