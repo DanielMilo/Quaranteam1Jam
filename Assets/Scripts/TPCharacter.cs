@@ -123,7 +123,7 @@ public class TPCharacter : MonoBehaviour
                 {
                     actualrotation = rotationNeeded;
                 }
-                Debug.Log("needed: " + rotationNeeded + " actual: " + actualrotation + " current: " + playerModelParent.localEulerAngles.y);
+                //Debug.Log("needed: " + rotationNeeded + " actual: " + actualrotation + " current: " + playerModelParent.localEulerAngles.y);
                 if(Mathf.Abs(actualrotation) > 0)
                 {
                     playerModelParent.localEulerAngles = new Vector2(playerModelParent.localEulerAngles.x, playerModelParent.localEulerAngles.y + actualrotation);
