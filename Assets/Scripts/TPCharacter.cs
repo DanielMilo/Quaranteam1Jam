@@ -41,6 +41,18 @@ public class TPCharacter : MonoBehaviour
         float currSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
         moveDirection = (forward * currSpeedX) + (up * moveDirection.y) + (right * currSpeedY);
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            animator.SetBool("squat", true);
+            speed *= 2f;
+
+        }
+        else if (Input.GetKeyUp(KeyCode.G))
+        {
+            animator.SetBool("squat", false);
+            speed /= 2f;
+        }
+
         if (characterController.isGrounded)
         {
             animator.SetFloat("speed", new Vector2(moveDirection.x, moveDirection.z).magnitude);
