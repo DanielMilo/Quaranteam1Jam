@@ -40,10 +40,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202560207709682291}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 400, y: 400, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8202560207709682290
 MonoBehaviour:
@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIText: {fileID: 0}
-  text: Hello
-  flashDuration: 2
+  text: 'Starting your journey you think about '
+  flashDuration: 10

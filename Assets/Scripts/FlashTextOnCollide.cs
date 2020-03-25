@@ -22,24 +22,26 @@ public class FlashTextOnCollide : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        StopCoroutine(currentFlashText);
+        if(currentFlashText != null)
+        {
+            StopCoroutine(currentFlashText);
+        }
 
-        StartCoroutine("flashText");
+        Debug.Log("hi2");
+        currentFlashText = StartCoroutine(flashText());
     }
 
-    private IEnumerable flashText()
+    private IEnumerator flashText()
     {
+        Debug.Log("before");
         UIText.enabled = true;
 
         UIText.text = text;
 
-        float startTime = Time.time;
-        while (Time.time < startTime + flashDuration)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(flashDuration);
 
         UIText.enabled = false;
+        Debug.Log("after");
     }
 
     // Update is called once per frame

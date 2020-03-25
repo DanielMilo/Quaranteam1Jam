@@ -27,6 +27,6 @@ public class diminishLightWhenPlayerDrawsNear : MonoBehaviour
         float currDistance = (player.transform.position - transform.position).magnitude;
         float ratio = currDistance / initialDistance;
         light.intensity = initialIntensity * ratio;
-        Debug.Log("ratio: " + ratio + " intensity: " + light.intensity);
+        //Debug.Log("ratio: " + ratio + " intensity: " + light.intensity);
     }
 }
