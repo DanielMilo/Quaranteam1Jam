@@ -78,7 +78,6 @@ public class TPCharacter : MonoBehaviour
             playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
 
             // rotation y
-
             rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
             transform.eulerAngles = new Vector2(0, rotation.y);
             if (currSpeedX == 0 && currSpeedY == 0)
@@ -97,7 +96,6 @@ public class TPCharacter : MonoBehaviour
                 float normalizedAngle = Vector2.Angle(Vector2.right, new Vector2(currSpeedX, currSpeedY).normalized);
                 float magnitude = 1;
                 if (currSpeedY < 0) magnitude = -1;
-                // TODO 2: turn fast but not instantly
                 Vector2 targetRotation = new Vector2(0, normalizedAngle * magnitude);
                 float rotationNeeded = targetRotation.y - playerModelParent.localEulerAngles.y;
                 float rotationDirection = 0;
@@ -106,8 +104,11 @@ public class TPCharacter : MonoBehaviour
                 {
                     rotationNeeded += 360;
                 }
-
-                if(rotationNeeded > 180)
+                if(rotationNeeded == 360)
+                {
+                    rotationDirection = 0;
+                }
+                else if(rotationNeeded > 180)
                 {
                     rotationDirection = -1;
                 }
